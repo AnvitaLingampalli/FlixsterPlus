@@ -14,6 +14,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
+import org.json.JSONArray
 import org.json.JSONObject
 
 private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -46,7 +47,7 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
 
 
                 Log.d("MovieFragment", json.toString())
-                val resultsJSON : JSONObject = json.jsonObject.get("results") as JSONObject
+                val resultsJSON : JSONArray = json.jsonObject.getJSONArray("results") as JSONArray
                 val moviesRawJSON : String = resultsJSON.toString()
 
                 val gson = Gson()
